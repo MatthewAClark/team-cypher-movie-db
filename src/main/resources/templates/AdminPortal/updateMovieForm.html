@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/template :: common-header"/>
+<meta charset="UTF-8">
+<title>Title</title>
+</head>
+<body>
+<div th:replace="fragments/template :: navbar"/>
+<div th:replace="fragments/template :: adminNavbar"/>
+
+
+<div class="text-center jumbotron pt-1">
+    <h1 class="pb-2">Update a movie</h1>
+    <form action="#" th:action="@{/admin/movieSaved}" th:object="${movie}" method="post">
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Movie ID</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{movieID}" th:value="${movie.movieID}" readonly/>
+
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Movie Title</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{movieTitle}" th:value="${movie.movieTitle}"/>
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Movie Summary</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{movieSummary}" th:value="${movie.movieSummary}"/>
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Movie Duration</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{movieDuration}" th:value="${movie.movieDuration}"/>
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Movie Genre</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{movieGenre}" th:value="${movie.movieGenre}"/>
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Movie Release Date</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{movieReleaseDate}"
+               th:value="${movie.movieReleaseDate}"/>
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Movie Cover Image</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{movieCoverImage}"
+               th:value="${movie.movieCoverImage}"/>
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Movie Trailer URL</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{movieTrailer}" th:value="${movie.movieTrailer}"/>
+        <input id="saveMovie" class="btn btn-primary mt-2 ml-2" type="submit" value="Save"/>
+    </form>
+
+    <!--<a class="btn btn-danger mt-2 mr-2" href="/editDeleteBook">Cancel</a>-->
+
+    <form action="#" th:action="@{/admin/movieDeleted}" th:object="${movie}" method="post">
+        <input class="col-md-4 text-center" type="text" th:field="*{movieID}" th:value="${movie.movieID}" readonly/>
+        <input id="deleteMovie" class="btn btn-primary mt-2 ml-2" type="submit" value="Delete"/>
+    </form>
+
+</div>
+
+<footer th:replace="fragments/template :: common-footer"/>
+</body>
+
+</html>

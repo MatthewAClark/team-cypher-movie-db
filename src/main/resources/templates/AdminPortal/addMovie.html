@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/template :: common-header"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:replace="fragments/template :: navbar"/>
+<div th:replace="fragments/template :: adminNavbar"/>
+
+<div class="text-center jumbotron pt-1">
+    <h1 class="pb-2">Add a new movie to the collection</h1>
+    <form action="#" th:action="@{/admin/movieAdded}" th:object="${movie}" method="post">
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Movie ID</p>
+
+        <input class="col-md-4 text-center" type="text" th:field="*{movieID}" th:value="${movie.getMovieID()}"
+               readonly/>
+
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Movie Title</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{movieTitle} "
+               placeholder="Movie Title e.g. Shaun of the Dead"/>
+
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Movie Summary</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{movieSummary} "
+               placeholder="Movie Summary e.g. A load of zombies attack London..."/>
+
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Movie Duration</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{movieDuration} "
+               placeholder="Movie Duration e.g. 99 min"/>
+
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Movie Genre</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{movieGenre} "
+               placeholder="Movie Genre e.g. Horror, Comedy"/>
+
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Movie Release Date</p>
+        <input class="col-md-4 text-center" th:field="*{movieReleaseDate} "
+               placeholder="Movie Release Date e.g. 09 Apr 2004"/>
+
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Movie Cover Image</p>
+        <input class="col-md-4 text-center" th:field="*{movieCoverImage} "
+               placeholder="Movie Cover Image URL link e.g. https://www.imdb.com/title/tt0365748/mediaviewer/rm4187183360?ref_=tt_ov_i"/>
+
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Movie Trailer</p>
+        <input class="col-md-4 text-center" th:field="*{movieTrailer} "
+               placeholder="Movie Trailer URL link e.g. https://www.youtube.com/watch?v=LIfcaZ4pC-4"/>
+
+        <br/>
+        <input class="btn btn-danger mt-2 mr-2" type="reset" value="Reset"/>
+        <input class="btn btn-primary mt-2 ml-2" type="submit" value="Submit"/>
+
+    </form>
+</div>
+
+<footer th:replace="fragments/template :: common-footer" />
+
+</body>
+</html>

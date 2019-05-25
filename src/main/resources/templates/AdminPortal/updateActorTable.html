@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/template :: common-header"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:replace="fragments/template :: navbar"/>
+<div th:replace="fragments/template :: adminNavbar"/>
+
+<div class="text-center jumbotron pt-1 admintables">
+    <h3 class="pb-2 titleDelete">Please select the actor you would like to edit</h3>
+</div>
+
+<table id="actorsTable" class="table table-hover text-center" >
+    <thead class="thead-dark">
+    <tr>
+        <!--        <th class="align-middle" scope="col">#</th>-->
+        <th class="align-middle" scope="col">Cover Photo</th>
+        <th class="align-middle" scope="col">Age</th>
+        <th class="align-middle" scope="col">Actor First Name</th>
+        <th class="align-middle" scope="col">Actor Middle Name</th>
+        <th class="align-middle" scope="col">Actor Last Name</th>
+        <th class="align-middle" scope="col">Actor Gender</th>
+
+    </tr>
+    </thead>
+
+    <tbody class="tbody-light">
+    <tr th:each="a:${actors}">
+        <td class="align-middle" style="max-width: 25%; width: 25%" ><a th:href="'/admin/editActor?actorId='+ ${a.getActorId()}"><img class="img-thumbnail w-25 imgradius" th:src="${a.getActorProfileImage()}"></a></td>
+        <td class="align-middle" th:text="${a.getActorAge()}"> </td>
+        <td class="align-middle" th:text="${a.getActorFistName()}"></td>
+        <td class="align-middle" th:text="${a.getActorMiddleName()}"></td>
+        <td class="align-middle" th:text="${a.getActorSurname()}"></td>
+        <td class="align-middle" th:text="${a.getActorGender()}"></td>
+    </tr>
+    </tbody>
+
+</table>
+
+<footer th:replace="fragments/template :: common-footer" />
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/template :: common-header"/>
+
+<meta charset="utf-8">
+
+<title th:text="${movie.getMovieTitle()}"></title>
+
+<body>
+<div th:replace="fragments/template :: navbar"/>
+<br>
+<div class="containergenres">
+    <div class="row">
+        <div class="col-md-12 topbit">
+
+            <h2 th:text="${movie.getMovieTitle()}"></h2>
+
+            <div class="poster" th:style="'background-image: url(' + ${movie.getMovieCoverImage()} + ');'"></div>
+            <iframe width="426px" height="240px"
+                    th:src="@{https://www.youtube.com/embed/{embed} (embed=${movie.getEmbedMovieTrailer()})}"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>Synopsis</h3>
+            <p th:text="${movie.getMovieSummary()}"></p>
+        </div>
+        <div class="col-sm-6">
+            <h3>Key Facts</h3>
+            <table>
+                <tr>
+                    <td>Rating: <span th:text="${movie.getMovieRating()}"></span></td>
+                </tr>
+                <tr>
+                    <td>Genre: <span th:text="${movie.getMovieGenre()}"></span></td>
+                </tr>
+                <tr>
+                    <td>Movie Duration: <span th:text="${movie.getMovieDuration()}"></span></td>
+                </tr>
+                <tr>
+                    <td>Release Date: <span th:text="${movie.getMovieReleaseDate()}"></span></td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+</body>
+<footer th:replace="fragments/template :: common-footer" />
+
+</html>

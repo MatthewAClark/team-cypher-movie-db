@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="common-header">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!-- include css in the header -->
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/datatables/1.10.12/css/jquery.dataTables.min.css}"/>
+
+    <link rel="icon" th:href="@{/img/logo.png}" sizes="32x32">
+
+    <title th:text="${pageTitle}"></title>
+
+</head>
+
+<body>
+<div th:fragment="navbar">
+    <div class="topnav">
+        <a href="/">Home</a>
+        <a href="/actors">Actors</a>
+        <a href="/ratings">Ratings</a>
+        <a href="/genres">Genres</a>
+        <div class = "log"><button onclick="window.location.href = '/admin';">Login</button></div>
+    </div>
+</div>
+
+<div th:fragment="adminNavbar">
+    <title> MOVIE MADNESS ADMIN PAGE</title>
+    <div class="topnav" >
+        <a href="/admin/adminPortal">Admin Home</a>
+        <a href="/admin/addActor">Add Actor</a>
+        <a href="/admin/updateActor">Edit/Delete Actor</a>
+        <a href="/admin/editMovie">Edit/Delete Movie</a>
+        <a href="/admin/addMovie">Add Movie</a>
+    </div>
+</div>
+
+<footer id="footer" th:fragment="common-footer">
+
+    <!-- include javascript in the footer -->
+    <script type="text/javascript" th:src="@{/webjars/jquery/3.3.1/jquery.min.js/}"></script>
+    <script type="text/javascript" th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{/webjars/datatables/1.10.12/js/jquery.dataTables.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/lib.js}"></script>
+
+
+    <div class="last">
+        <div class="combine">
+            <p> SUBSCRIBE TO GET UPDATES!</p>
+            <p> Get in contact with the team </p>
+
+            <form action="mailto:TeamCypher@DevAcademy.com" method="post" enctype="text/plain">
+                <input class="footer-message-input" type="text" value="your email"> <input type="submit" name="submit" value="submit">
+
+            </form>
+        </div>
+        <small>Copyright © March - April 2019 DevAcademy - Movie Madness Ltd.</small>
+    </div>
+</footer>
+</body>
+</html>
