@@ -58,7 +58,7 @@ public class MovieApplicationController {
 //        model.addAttribute("mostRated", mostRated);
 //        model.addAttribute("pageTitle", "Home Page");
 
-        return "index";
+        return "index2";
     }
 
 
