@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/template :: common-header"/>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+<div th:replace="fragments/template :: navbar"/>
+<table class="table tab le-hover text-center">
+    <thead class="thead-dark">
+    <tr>
+        <th class="align-middle" scope="col">Movie Cover</th>
+        <th class="align-middle" scope="col">Movie Title</th>
+        <th class="align-middle" scope="col">Rating</th>
+    </tr>
+    </thead>
+    <tbody class="tbody-light">
+    <tr th:each="movieF :${movies}">
+        <td class="align-middle" style="max-width: 25%; width: 25%" ><a th:href="'/movies?movieId='+ ${movieF.getMovieID()}"><img class="img-thumbnail w-25 imgradius" th:src="${movieF.getMovieCoverImage()}"></a></td>
+        <td class="align-middle" th:text="${movieF.getMovieTitle()}"></td>
+        <td class="align-middle" th:text="${movieF.getMovieRating()}"></td>
+    </tr>
+    </tbody>
+</table>
+<footer th:replace="fragments/template :: common-footer" />
+</body>
+</html>

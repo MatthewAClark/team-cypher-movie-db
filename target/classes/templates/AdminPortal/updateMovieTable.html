@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/template :: common-header"/>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+<div th:replace="fragments/template :: navbar"/>
+<div th:replace="fragments/template :: adminNavbar"/>
+
+<div class="text-center jumbotron pt-1 admintables">
+    <h3 class="pb-2 titleDelete">Please select the movie you would like to edit</h3>
+</div>
+
+    <table id="movieTable" class="table table-hover text-center" >
+        <thead class="thead-dark">
+        <tr>
+            <th class="align-middle" scope="col">ID</th>
+            <th class="align-middle" scope="col">Cover</th>
+            <th class="align-middle" scope="col">Title</th>
+        </tr>
+        </thead>
+
+        <tbody class="admintablesBody">
+        <tr th:each="movieF:${movies}">
+            <td class="align-middle" th:text="${movieF.getMovieID()}"></td>
+            <td class="align-middle" style="max-width: 25%; width: 25%" >
+                <a th:href="'/admin/updateMovie?movieId='+ ${movieF.getMovieID()}">
+                    <img class="img-thumbnail w-25 imgradius" th:src="${movieF.getMovieCoverImage()}"></a></td>
+            <td class="align-middle" th:text="${movieF.getMovieTitle()}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+
+<footer th:replace="fragments/template :: common-footer" />
+
+</body>
+
+</html>

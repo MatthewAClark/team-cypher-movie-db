@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/template :: common-header"/>
+<meta charset="UTF-8">
+<title>Title</title>
+</head>
+<body>
+<div th:replace="fragments/template :: navbar"/>
+<div th:replace="fragments/template :: adminNavbar"/>
+
+
+<div class="text-center jumbotron pt-1">
+    <h1 class="pb-2">Update a movie</h1>
+    <form action="#" th:action="@{/admin/actorSaved}" th:object="${actor}" method="post" >
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Actor ID</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{actorId}" th:value="${actor.actorId}" readonly/>
+
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Actor full name</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{actorFullName}" th:value="${actor.actorFullName}"/>
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Actor Age</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{actorAge}" th:value="${actor.actorAge}"/>
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Actor Gender</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{actorGender}" th:value="${actor.actorGender}"/>
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Actor Profile Image</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{actorProfileImage}" th:value="${actor.actorProfileImage}"/>
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Movie Trailer URL</p>
+        <br/>
+        <input id="saveActor" class="btn btn-primary mt-2 ml-2" type="submit" value="Save"/>
+    </form>
+
+    <form action="#" th:action="@{/admin/actorDeleted}" th:object="${actor}" method="post" >
+        <input class="col-md-4 text-center" type="text" th:field="*{actorId}" th:value="${actor.actorId}" readonly/>
+        <input id="deleteActor" class="btn btn-primary mt-2 ml-2" type="submit" value="Delete"/>
+    </form>
+
+</div>
+
+<footer th:replace="fragments/template :: common-footer" />
+
+</body>
+
+</html>

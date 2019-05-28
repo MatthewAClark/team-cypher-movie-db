@@ -1,0 +1,9 @@
+com/team/cypher/moviemadness/User.class
+com/team/cypher/moviemadness/MoviemadnessApplication.class
+com/team/cypher/moviemadness/ErrorController.class
+com/team/cypher/moviemadness/Movie.class
+com/team/cypher/moviemadness/InitialiseDB.class
+com/team/cypher/moviemadness/Reviews.class
+com/team/cypher/moviemadness/Actor.class
+com/team/cypher/moviemadness/MovieApplicationController.class
+com/team/cypher/moviemadness/AdminController.class

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/template :: common-header"/>
+
+<body>
+
+<div th:replace="fragments/template :: navbar"/>
+<!--<div class = "actorTitle">-->
+<!--<p class="align-middle" th:text="${actor.getActorFistName()}"></p>-->
+<!--<p class="align-middle" th:text="${actor.getActorMiddleName()}"></p>-->
+<!--<p class="align-middle" th:text="${actor.getActorSurname()}"></p>-->
+<!--</div>-->
+
+<!--<div class="container">-->
+
+<!--        <img th:src="${actor.getActorProfileImage()}" alt="..." />-->
+<!--</div>-->
+
+
+<div class="containergenres">
+    <div class="row">
+        <div class="col-md-12 topbit">
+
+            <h2 th:text="${actor.getActorFullName()}"></h2>
+
+            <div class="poster" th:style="'background-image: url(' + ${actor.getActorProfileImage()} + ');'"></div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+
+        <div class="col-lg-6">
+            <h3>Details</h3>
+            <table>
+                <tr>
+                    <td>First Name:</td>
+                    <td class="align-middle" th:text="${actor.getActorFistName()}"></td>
+                </tr>
+                <tr>
+                    <td>
+                    <!--                        <span th:if="${actor.getActorMiddleName() != null}">Middle Name:</span>-->
+                    <!--                        <span th:unless="${actor.getActorMiddleName() != null}"></span>-->
+
+                    </td>
+
+                    <td th:if="${actor.getActorMiddleName() != null}" th:text="${actor.getActorMiddleName()}">Static
+                        Middle
+                        Name
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>Surname:</td>
+                    <td class="align-middle" th:text="${actor.getActorSurname()}"></td>
+                </tr>
+                <tr>
+                    <td>Gender:</td>
+                    <td class="align-middle" th:text="${actor.getActorGender()}"></td>
+                </tr>
+                <tr>
+                    <td>Age:</td>
+                    <td class="align-middle" th:text="${actor.getActorAge()}"></td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+
+<footer th:replace="fragments/template :: common-footer"/>
+
+</body>
+
+</html>
+
+

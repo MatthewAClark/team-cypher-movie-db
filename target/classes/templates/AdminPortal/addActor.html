@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/template :: common-header"/>
+<body>
+<div th:replace="fragments/template :: navbar"/>
+<div th:replace="fragments/template :: adminNavbar"/>
+
+<div class="text-center jumbotron pt-1">
+    <h1 class="pb-2">Add a new actor to the database</h1>
+    <form action="#" th:action="@{/admin/actorAdded}" th:object="${actor}" method="post">
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Movie ID</p>
+
+        <input class="col-md-4 text-center" type="text" th:value="${actor.getActorId()}"
+               readonly/>
+
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Actor full name</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{actorFullName} "
+               placeholder="Actor full name e.g. Samuel L. Jackson"/>
+
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Actor Age</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{actorAge} "/>
+
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Actor gender</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{actorGender} "
+               placeholder="male or female"/>
+
+        <p class="col-md-12 font-weight-bold mb-1 mt-1">Profile image URL</p>
+        <input class="col-md-4 text-center" type="text" th:field="*{actorProfileImage} "
+               placeholder="Actor profile picture URL"/>
+        <br>
+        <input class="btn btn-danger mt-2 mr-2" type="reset" value="Reset"/>
+        <input class="btn btn-primary mt-2 ml-2" type="submit" value="Submit"/>
+
+    </form>
+</div>
+
+<footer th:replace="fragments/template :: common-footer"/>
+
+</body>
+</html>
