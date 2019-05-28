@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes/:target/dependency/* com/team/cypher/moviemadness/MoviemadnessApplication
+web: target/start -Dhttp.port=${PORT} ${JAVA_OPTS} -DapplyEvolutions.default=true -Ddb.default.driver=org.postgresql.Driver -Ddb.default.url=${DATABASE_URL}
