@@ -50,15 +50,15 @@ public class MovieApplicationController {
     @GetMapping("/") // whenever you type local host 8080 this function gets called
     public String viewHomePage(Model model) { //in spring framework its our database- way to send data to front end
 
-//        ArrayList<ArrayList<Movie>> recentMovies = movie.makeCarousel(movie.getMovieReleaseDates()); //nesting array list- passing it two arrays
-//        ArrayList<Movie> mostRated = movie.getMovieMostRated();
-//        model.addAttribute("recentMovies", recentMovies); //sending recent movies array to front end
-//
-//        model.addAttribute("movies", movies);
-//        model.addAttribute("mostRated", mostRated);
-//        model.addAttribute("pageTitle", "Home Page");
+        ArrayList<ArrayList<Movie>> recentMovies = movie.makeCarousel(movie.getMovieReleaseDates()); //nesting array list- passing it two arrays
+        ArrayList<Movie> mostRated = movie.getMovieMostRated();
+        model.addAttribute("recentMovies", recentMovies); //sending recent movies array to front end
 
-        return "index2";
+        model.addAttribute("movies", movies);
+        model.addAttribute("mostRated", mostRated);
+        model.addAttribute("pageTitle", "Home Page");
+
+        return "index";
     }
 
 
